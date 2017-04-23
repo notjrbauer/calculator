@@ -1,0 +1,138 @@
+body{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-image: -webkit-linear-gradient(top left, #5cc8ff 0%, #d63c6b 100%);
+	background-image: linear-gradient(to bottom right, #5cc8ff 0%, #d63c6b 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+body {
+	padding-top: 20px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.App {
+	text-align: center;
+}
+
+.App-logo {
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
+}
+
+.App-header {
+	background-color: #222;
+	height: 150px;
+	padding: 20px;
+	color: white;
+}
+
+.App-intro {
+	font-size: large;
+}
+
+@keyframes App-logo-spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: stretch;
+}
+
+.viewContainer {
+	position: relative;
+	height: 80px;
+	z-index: 10;
+	outline: none;
+	box-shadow: 0 4px 2px -2px rgba(19, 19, 19, .64);
+	padding: 8px;
+	padding: .5rem;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	background-color: rgba(19, 19, 19, .64);
+	font-size: 32px;
+	font-size: 2rem;
+	line-height: 2;
+	color: #d63c6b;
+	text-align: right;
+	direction: rtl;
+	white-space: nowrap
+
+}
+.keyPadContainer {
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: baseline;
+	align-content: stretch;
+
+}
+.keyPad {
+	flex-shrink:1;
+	width: 33%;
+	flex-basis:auto;
+	align-self: auto;
+	color: #5cc8ff;
+}
+.form-control {
+	color: #d63c6b !important;
+}
+button {
+	font-family: sans-serif;
+	outline: none;
+	border: 0;
+	padding: 16px;
+	padding: 1rem;
+	background-color: #292f36;
+	font-size: 20px;
+	font-size: 1.25rem;
+	line-height: 1;
+	-webkit-transition: all 300ms cubic-bezier(1, 1, 1, 1);
+	transition: all 300ms cubic-bezier(1, 1, 1, 1);
+}
+button:hover {
+	color: #00a3f5;
+}
+
+button.block {
+	width: 100%;
+}
+
+button.transparent {
+	background-color: transparent;
+}
+
+button.no-padding {
+	padding: 0;
+}
+.operand-container {
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: stretch;
+
+}
+
+.operand-container .keyPad{
+  color: #d63c6b;
+	flex-shrink:1;
+	width: 50%;
+	flex-basis:auto;
+	align-self: auto;
+
+}
+.operand-container .keyPad:hover {
+  color: #c41c4f
+}

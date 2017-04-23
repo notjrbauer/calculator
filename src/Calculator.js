@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import logo from './logo.svg'
-import './App.css'
+import './Calculator.css'
 import Button from './Button'
 
-class App extends Component {
+class Calculator extends Component {
   constructor () {
     super()
 
@@ -29,7 +29,6 @@ class App extends Component {
     let number = this.state.memory
     let buffer = this.state.buffer.concat(number)
     let sign = e.target.value
-    console.log('sign', sign)
 
     this.setState({sign: sign, memory: '', buffer: buffer })
   }
@@ -37,14 +36,23 @@ class App extends Component {
     let number = this.state.memory
     let buffer = this.state.buffer.concat(number)
     let result = 0
-    console.log('e', e.target.value)
+
     if (buffer.length >= 2) {
+      let first = Number(buffer[0])
+      let second = Number(buffer[1])
+
       switch (this.state.sign) {
         case '+':
-          result = Number(buffer[0]) + Number(buffer[1])
+          result = Number(first + second).toFixed(2)
           break
         case '-':
-          result = Number(buffer[0]) - Number(buffer[1])
+          result = Number(first - second).toFixed(2)
+          break
+        case '*':
+          result = Number(first * second).toFixed(2)
+          break
+        case '/':
+          result = Number(first / second).toFixed(2)
           break
         default:
           result = ''
@@ -59,23 +67,26 @@ class App extends Component {
                                             </Button>)
     let Add = <Button value='+' onClick={this.onMath}></Button>
     let Subtract = <Button value='-' onClick={this.onMath}></Button>
+    let Multiply = <Button value='*' onClick={this.onMath}></Button>
+    let Divide = <Button value='/' onClick={this.onMath}></Button>
     let Equal = <Button value='=' onClick={this.onEqual}></Button>
     return (
-      <div className='App'>
-        <div className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <h2>Welcome to React</h2>
-        </div>
-        <input value={this.state.memory} ref='in'></input>
-        {KeyPad}
-        <br/>
-        {Add}
-        {Subtract}
-        <br/>
-        {Equal}
+      <div className='Calculator'>
+        <section className='container'>
+          <section className='viewContainer'>
+            <input className=' form-control view' value={this.state.memory} ref='in'></input>
+          </section>
+          <section className='keyPadContainer'>
+            {KeyPad}
+          </section>
+          <br/>
+          <section className='operand-container'>
+            {Add} {Subtract} {Multiply} {Divide} {Equal}
+          </section>
+        </section>
       </div>
     )
   }
 }
 
-export default App
+export default Calculator

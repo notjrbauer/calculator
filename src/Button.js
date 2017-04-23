@@ -5,9 +5,7 @@ class Button extends Component {
     super()
   }
   render () {
-    return <button value={this.props.value} onClick={this.props.onClick}>
-             {this.props.value}
-           </button>
+    return <button className='keyPad' value={this.props.value} onClick={this.props.onClick}>{this.props.value}</button>
   }
 
 }
